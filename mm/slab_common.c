@@ -1214,6 +1214,7 @@ void __init setup_kmalloc_cache_index_table(void)
 	BUILD_BUG_ON(KMALLOC_MIN_SIZE > 256 ||
 		(KMALLOC_MIN_SIZE & (KMALLOC_MIN_SIZE - 1)));
 
+	printk(KERN_INFO "Memory Allocation: Started\n");
 	for (i = 8; i < KMALLOC_MIN_SIZE; i += 8) {
 		unsigned int elem = size_index_elem(i);
 
@@ -1227,6 +1228,7 @@ void __init setup_kmalloc_cache_index_table(void)
 		 * The 96 byte size cache is not used if the alignment
 		 * is 64 byte.
 		 */
+		printk(KERN_INFO "64 Allocation: Operated\n");
 		for (i = 64 + 8; i <= 96; i += 8)
 			size_index[size_index_elem(i)] = 7;
 
@@ -1238,6 +1240,7 @@ void __init setup_kmalloc_cache_index_table(void)
 		 * is 128 byte. Redirect kmalloc to use the 256 byte cache
 		 * instead.
 		 */
+		printk(KERN_INFO "128 Allocation: Operated\n");
 		for (i = 128 + 8; i <= 192; i += 8)
 			size_index[size_index_elem(i)] = 8;
 	}
