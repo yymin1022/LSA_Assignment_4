@@ -1193,7 +1193,7 @@ const struct kmalloc_info_struct kmalloc_info[] __initconst = {
 	{"kmalloc-1M",        1048576},		{"kmalloc-2M",        2097152},
 	{"kmalloc-4M",        4194304},		{"kmalloc-8M",        8388608},
 	{"kmalloc-16M",      16777216},		{"kmalloc-32M",      33554432},
-	{"kmalloc-64M",      67108864}
+	{"kmalloc-64M",      67108864},		{"kmalloc-384",           384}
 };
 
 /*
