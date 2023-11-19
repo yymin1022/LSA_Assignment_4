@@ -1243,6 +1243,7 @@ void __init setup_kmalloc_cache_index_table(void)
 	}
 
 	if (KMALLOC_MIN_SIZE >= 384) {
+		printk(KERN_INFO "384 Allocation: Operated\n");
 		for (i = 384 + 8; i <= 512; i += 8)
 			size_index[size_index_elem(i)] = 27;
 	}
