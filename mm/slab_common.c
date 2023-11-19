@@ -1241,6 +1241,11 @@ void __init setup_kmalloc_cache_index_table(void)
 		for (i = 128 + 8; i <= 192; i += 8)
 			size_index[size_index_elem(i)] = 8;
 	}
+
+	if (KMALLOC_MIN_SIZE >= 384) {
+		for (i = 384 + 8; i <= 512; i += 8)
+			size_index[size_index_elem(i)] = 27;
+	}
 }
 
 static const char *
