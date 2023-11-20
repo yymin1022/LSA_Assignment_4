@@ -368,7 +368,7 @@ static __always_inline unsigned int kmalloc_index(size_t size)
 	
 	if (size ==        384) {
 		printk(KERN_INFO "384 Allocation Requested\n");
-		return 27;
+		return KMALLOC_SHIFT_HIGH + 1;
 	}
 
 	if (size <=        512) return 9;
@@ -554,6 +554,7 @@ static __always_inline void *kmalloc(size_t size, gfp_t flags)
 		if (size > KMALLOC_MAX_CACHE_SIZE)
 			return kmalloc_large(size, flags);
 #ifndef CONFIG_SLOB
+
 		index = kmalloc_index(size);
 
 		if (!index)
