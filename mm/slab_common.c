@@ -1312,6 +1312,8 @@ void __init create_kmalloc_caches(slab_flags_t flags)
 					!kmalloc_caches[type][2])
 				new_kmalloc_cache(2, type, flags);
 		}
+		if (!kmalloc_caches[type][KMALLOC_SHIFT_HIGH + 1])
+			new_kmalloc_cache(KMALLOC_SHIFT_HIGH + 1, type, flags);
 	}
 
 	/* Kmalloc array is now usable */
