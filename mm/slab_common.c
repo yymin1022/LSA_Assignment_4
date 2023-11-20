@@ -1313,7 +1313,10 @@ void __init create_kmalloc_caches(slab_flags_t flags)
 				new_kmalloc_cache(2, type, flags);
 		}
 		if (!kmalloc_caches[type][KMALLOC_SHIFT_HIGH + 1])
-			new_kmalloc_cache(KMALLOC_SHIFT_HIGH + 1, type, flags);
+			kmalloc_caches[type][KMALLOC_SHIFT_HIGH + 1] = 
+				create_kmalloc_cache(
+					"384 TEST KMALLOC",
+					384, flags, 0, 384);
 	}
 
 	/* Kmalloc array is now usable */
