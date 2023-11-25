@@ -1337,7 +1337,7 @@ void __init create_kmalloc_caches(slab_flags_t flags)
 				n, size, SLAB_CACHE_DMA | flags, 0, 0);
 		}
 	}
-	kmalloc_caches[KMALLOC_DMA][KMALLOC_SHIFT_HIGH + !] = create_kmalloc_cache(
+	kmalloc_caches[KMALLOC_DMA][KMALLOC_SHIFT_HIGH + 1] = create_kmalloc_cache(
 		"384-dma-kmalloc", 384, SLAB_CACHE_DMA | flags, 0, 0);
 #endif
 }
