@@ -557,7 +557,7 @@ static __always_inline void *kmalloc(size_t size, gfp_t flags)
 #ifndef CONFIG_SLOB
 
 		index = kmalloc_index(size);
-		printk(KERN_INFO "kmalloc_index of %zu is %lu\n", size, index);
+		printk(KERN_INFO "kmalloc_index of %zu is %u\n", size, index);
 
 		if (!index)
 			return ZERO_SIZE_PTR;
