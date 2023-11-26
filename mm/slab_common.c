@@ -1295,6 +1295,7 @@ void __init create_kmalloc_caches(slab_flags_t flags)
 {
 	int i, type;
 
+	printk(KERN_INFO "kmalloc cache initialize\n");
 	for (type = KMALLOC_NORMAL; type <= KMALLOC_RECLAIM; type++) {
 		for (i = KMALLOC_SHIFT_LOW; i <= KMALLOC_SHIFT_HIGH; i++) {
 			if (!kmalloc_caches[type][i])
@@ -1337,6 +1338,7 @@ void __init create_kmalloc_caches(slab_flags_t flags)
 				n, size, SLAB_CACHE_DMA | flags, 0, 0);
 		}
 	}
+	printk(KERN_INFO "384 DMA Cache Initialize\n");
 	kmalloc_caches[KMALLOC_DMA][KMALLOC_SHIFT_HIGH + 1] = create_kmalloc_cache(
 		"384-dma-kmalloc", 384, SLAB_CACHE_DMA | flags, 0, 0);
 #endif
