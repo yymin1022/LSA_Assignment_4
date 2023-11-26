@@ -551,13 +551,15 @@ static __always_inline void *kmalloc(size_t size, gfp_t flags)
 #ifndef CONFIG_SLOB
 		unsigned int index;
 #endif
-		printk(KERN_INFO "%zu is __buildin_constant\n", size);
+		if(size == 384)
+			printk(KERN_INFO "%zu is __buildin_constant\n", size);
 		if (size > KMALLOC_MAX_CACHE_SIZE)
 			return kmalloc_large(size, flags);
 #ifndef CONFIG_SLOB
 
 		index = kmalloc_index(size);
-		printk(KERN_INFO "kmalloc_index of %zu is %u\n", size, index);
+		if(size == 384)
+			printk(KERN_INFO "kmalloc_index of %zu is %u\n", size, index);
 
 		if (!index)
 			return ZERO_SIZE_PTR;
