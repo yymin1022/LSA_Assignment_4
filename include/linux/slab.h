@@ -548,6 +548,7 @@ static __always_inline void *kmalloc_large(size_t size, gfp_t flags)
 static __always_inline void *kmalloc(size_t size, gfp_t flags)
 {
 	if (__builtin_constant_p(size)) {
+		printk(KERN_INFO "%ud is __buildin_constant\n", size);
 #ifndef CONFIG_SLOB
 		unsigned int index;
 #endif
@@ -556,6 +557,7 @@ static __always_inline void *kmalloc(size_t size, gfp_t flags)
 #ifndef CONFIG_SLOB
 
 		index = kmalloc_index(size);
+		printk(KERN_INFO "kmalloc_index of %ud is %ud\n", size, index);
 
 		if (!index)
 			return ZERO_SIZE_PTR;
