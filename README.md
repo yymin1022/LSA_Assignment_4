@@ -26,6 +26,23 @@
 
 ---
 
+---
+
+### Source Codes
+
+다음과 같이 `/mm/slab_common.c`의 할당 과정 로직을 수정하여, 매모리 할당 단위 블럭의 Array를 수정하고, 인덱싱 범위를 조정하였으며, `384 bytes` 요청에 대한 예외 로직이 동작하도록 수정하였습니다.
+
+<div style="display: flex; flex-direction: row;">
+    <img src="image/source_1.png" width="45%" />
+    <img src="image/source_2.png" width="45%" />
+</div>
+<div style="display: flex; flex-direction: row;">
+    <img src="image/source_3.png" width="45%" />
+    <img src="image/source_4.png" width="45%" />
+</div>
+
+---
+
 ### Team
 | [유용민](https://github.com/yymin1022) | [채승운](https://github.com/win-luck) | [박지우](https://github.com/pjw-redt) | [손유진](https://github.com/causyj) |
 | --- | --- | --- | --- |
