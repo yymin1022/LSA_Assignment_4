@@ -15,12 +15,12 @@
 `384 bytes` 크기 할당자의 효율성을 테스트하기에 앞서, 먼저 기존의 `512 bytes`로 할당이 이루어지는 순정 커널에서의 모듈 실행 결과입니다.<br/>
 테스트는 상기에서 언급한 커널 모듈을 기반으로 진행하였으며, 모듈을 실행하는 경우 `384 bytes` 크기의 할당 요청이 409600회 진행됩니다.
 
-<img src="image/result_before_512.png" width="75%" />
+<img src="README_Images/result_before_512.png" width="75%" />
 
 총 `209,715,200 bytes`의 할당이 이루어졌습니다.<br/>
 다음은 `384 bytes` 크기의 할당자 단위를 추가로 구현한 본 프로젝트에서 제작한 커널의 테스트 결과입니다.
 
-<img src="image/result_after_384.png" width="75%" />
+<img src="README_Images/result_after_384.png" width="75%" />
 
 총 `152,286,400 bytes`로 약 25%의 메모리가 절약된 것을 확인할 수 있습니다.
 
@@ -33,12 +33,12 @@
 다음과 같이 `/mm/slab_common.c`의 할당 과정 로직을 수정하여, 매모리 할당 단위 블럭의 Array를 수정하고, 인덱싱 범위를 조정하였으며, `384 bytes` 요청에 대한 예외 로직이 동작하도록 수정하였습니다.
 
 <div style="display: flex; flex-direction: row;">
-    <img src="image/source_1.png" width="45%" />
-    <img src="image/source_2.png" width="45%" />
+    <img src="README_Images/source_1.png" width="45%" />
+    <img src="README_Images/source_2.png" width="45%" />
 </div>
 <div style="display: flex; flex-direction: row;">
-    <img src="image/source_3.png" width="45%" />
-    <img src="image/source_4.png" width="45%" />
+    <img src="README_Images/source_3.png" width="45%" />
+    <img src="README_Images/source_4.png" width="45%" />
 </div>
 
 ---
@@ -46,7 +46,7 @@
 ### Team
 | [유용민](https://github.com/yymin1022) | [채승운](https://github.com/win-luck) | [박지우](https://github.com/pjw-redt) | [손유진](https://github.com/causyj) |
 | --- | --- | --- | --- |
-| <img src="image/profile_yymin1022.png" width="150" /> | <img src="image/profile_win-luck.png" width="150" /> | <img src="image/profile_pjw-redt.png" width="150" /> | <img src="image/profile_causyj.png" width="150" height="150" style="object-fit: cover;"/> |
+| <img src="README_Images/profile_yymin1022.png" width="150" /> | <img src="README_Images/profile_win-luck.png" width="150" /> | <img src="README_Images/profile_pjw-redt.png" width="150" /> | <img src="README_Images/profile_causyj.png" width="150" height="150" style="object-fit: cover;"/> |
 | Leader / Kernel 개발 / Kernel Module 개발 | kmalloc 관련 자료 분석 | Slab 관련 자료 분석 | 발표 및 자료 분석 |
 | 소프트웨어학부 "19 | 소프트웨어학부 "19 | 소프트웨어학부 "21 | 소프트웨어학부 "21 |
 
